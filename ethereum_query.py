@@ -8,7 +8,7 @@ w3 = Web3(Web3.HTTPProvider('http://' + IP_ADDR + ':' + PORT))
 
 if w3.isConnected():
     #     This line will mess with our autograders, but might be useful when debugging
-    print("Connected to Ethereum node")
+    # print("Connected to Ethereum node")
 else:
     print("Failed to connect to Ethereum node!")
 
@@ -26,12 +26,12 @@ def get_gas_price(tx):
 
 
 def get_gas(tx):
-    gas = 1  # YOUR CODE HERE
+    gas = w3.eth.get_transaction_receipt(tx).gasUsed
     return gas
 
 
 def get_transaction_cost(tx):
-    tx_cost = 1  # YOUR CODE HERE
+    tx_cost = get_gas_price(tx) * get_gas(tx)
     return tx_cost
 
 
