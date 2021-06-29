@@ -14,14 +14,14 @@ else:
 
 
 def get_transaction(tx):
-    tx = web3.eth.get_transaction(tx)  # YOUR CODE HERE
+    tx = w3.eth.get_transaction(tx)  # YOUR CODE HERE
     return tx
 
 
 # Return the gas price used by a particular transaction,
 #   tx is the transaction
 def get_gas_price(tx):
-    gas_price = web3.eth.get_transaction_receipt(tx).gasUsed
+    gas_price = w3.eth.get_transaction_receipt(tx).gasUsed
     return gas_price
 
 
